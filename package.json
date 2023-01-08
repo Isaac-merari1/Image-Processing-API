@@ -4,16 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.18.2",
-    "eslint": "^8.30.0",
-    "jasmine-spec-reporter": "^7.0.0",
     "jasmine": "^4.5.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.8.1",
     "sharp": "^0.31.3",
-    "supertest": "^6.3.3",
-    "typescript": "^4.9.4"
+    "supertest": "^6.3.3"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
@@ -24,13 +19,26 @@
     "@types/prettier": "^2.7.2",
     "@types/sharp": "^0.31.1",
     "@types/supertest": "^2.0.12",
-    "ts-node": "^10.9.1"
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "express": "^4.18.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "prettier": "^2.8.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build && npm run jasmine",
     "start": "nodemon src/index.ts",
-    "build": "build"
+    "build": "npx tsc",
+    "lint": "eslint --ignore-path .eslintignore --ext .js,.ts .",
+    "prettier": "prettier --config .prettierrc \"**/*.ts\" --write ",
+    "jasmine": "jasmine",
+    "dev": "npm run build && npm run start"
   },
-  "author": "",
+  "author": "Isaac Adu Yirenkyi",
   "license": "ISC"
 }
